@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>打开联系人页面</title>
+  </head>
+  <body>
+    <h1>打开联系人页面</h1>
+    <button id="openContactsBtn">打开联系人页面</button>
+
+    <script>
+      document
+        .getElementById("openContactsBtn")
+        .addEventListener("click", function () {
+          if ("contacts" in navigator) {
+            var options = {
+              multiple: false,
+              fields: ["name", "phoneNumbers", "organizations"],
+            };
+
+            var contactProperties = {
+              name: ["displayName"],
+              phoneNumbers: ["123"],
+              organizations: ["company"],
+            };
+
+            navigator.contacts
+              .select(options, contactProperties)
+              .then((contacts) => {
+                // 处理从联系人页面返回的联系人信息
+                console.log(contacts);
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          } else {
+            alert("浏览器不支持打开联系人页面功能");
+          }
+        });
+    </script>
+  </body>
+</html>
