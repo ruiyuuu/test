@@ -20,17 +20,17 @@
     <script>
         document.getElementById('downloadVcardBtn').addEventListener('click', function() {
             var vcardData = 'BEGIN:VCARD\n' +
-                            'VERSION:4.0\n' +
+                            'VERSION:3.0\n' +
                             'N:王小美\n' +
                             'TEL;TYPE=CELL:0987654321\n' +
                             'ORG:測試公司\n' +
-                            'PHOTO;JPEG:https://ruiyuuu.github.io/test/photo.jpg\n'+
+                            'PHOTO;TYPE=JPEG;VALUE=URI:https://ruiyuuu.github.io/test/photo.jpg\n'+
                             'ADR:太平洋中間\n'+
                             'EMAIL:test@gmail.com\n'+
                             'URL:www.google.com\n'+
                             'CATEGORIES:老師\n'+
                             'FBURL:GOGO保\n'+
-                            'LOGO;PNG:https://ruiyuuu.github.io/test/photo.jpg\n'+
+                            'LOGO;TYPE=PNG;VALUE=URI:https://ruiyuuu.github.io/test/photo.jpg\n'+
                             'NICKNAME:Jon,Johnny\n'+
                             'X-LINE:test\n'+
                             'TITLE:Manager\n'+
