@@ -7,18 +7,32 @@
 </head>
 <body>
     <h1>測試股份有限公司</h1>
-    <p>姓名：王小美 事業部經理</p>
+    <p>姓名：王小美</p>
     <p>聯絡方式：0987654321</p>
+    <p>地址：高雄市左營區大順路</p>
     <p>公司：測試股份有限公司</p>
+    <p>LINE ID：test</p>
+    <p>email：test@gmail.com</p>
+    <p>頭銜：事業部經理 | 財務認證</p>
+    <img src="./photo.jpg" alt="">
     <button id="downloadVcardBtn">加為聯絡人</button>
 
     <script>
         document.getElementById('downloadVcardBtn').addEventListener('click', function() {
             var vcardData = 'BEGIN:VCARD\n' +
-                            'VERSION:3.0\n' +
+                            'VERSION:4.0\n' +
                             'N:王小美;事業部經理\n' +
                             'TEL;TYPE=CELL:0987654321\n' +
                             'ORG:測試公司\n' +
+                            'PHOTO;JPEG:https://ruiyuuu.github.io/test/photo.jpg'+
+                            'ADR:高雄市左營區大順路'+
+                            'EMAIL:test@gmail.com'+
+                            'URL:www.google.com'+
+                            'CATEGORIES:老師'+
+                            'FBURL:GOGO保'+
+                            'LOGO;PNG:https://ruiyuuu.github.io/test/photo.jpg'+
+                            'NICKNAME:Jon,Johnny'+
+                            'X-LINE:test'
                             'END:VCARD';
 
             var blob = new Blob([vcardData], { type: 'text/vcard' });

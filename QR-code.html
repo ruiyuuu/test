@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR-code儲存聯絡人</title>
+    <script src="http://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+    <h1>QR-code儲存聯絡人</h1>
+    <div>
+        <label for="name">姓名：</label>
+        <input type="text" id="name" value="王小美">
+    </div>
+    <div>
+        <label for="phone">电话号码：</label>
+        <input type="text" id="phone" value="123">
+    </div>
+    <div>
+        <label for="company">公司：</label>
+        <input type="text" id="company">
+    </div>
+    <div>
+        <button onclick="generateQRCode()">生成二维码</button>
+    </div>
+    <div id="qrcode"></div>
+
+    <script>
+        function generateQRCode() {
+            var name = document.getElementById('name').value;
+            var phone = document.getElementById('phone').value;
+            var company = document.getElementById('company').value;
+
+            var text = "BEGIN:VCARD\nVERSION:3.0\n";
+            text += "FN:" + name + "\n";
+            text += "ORG:" + company + "\n";
+            text += "TEL:" + phone + "\n";
+            text += "END:VCARD";
+
+            var qrCodeDiv = document.getElementById('qrcode');
+            qrCodeDiv.innerHTML = '';
+
+            new QRCode(qrCodeDiv, {
+                text: text,
+                width: 200,
+                height: 200
+            });
+        }
+    </script>
+</body>
+</html>
