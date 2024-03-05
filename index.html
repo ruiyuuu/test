@@ -6,38 +6,47 @@
     <title>打开联系人页面</title>
   </head>
   <body>
-    <h1>打开联系人页面</h1>
-    <button id="openContactsBtn">打开联系人页面</button>
+    <div id="header">
+      <h1>Contacts</h1>
+    </div>
+
+    <h1>new contact</h1>
+    <form action="" name="frm">
+      <ul class="form">
+        <li>
+          <input type="text" name="first_name" value="12" id="first_name">
+        </li>
+        <li>
+          <input type="text" name="last_name" value="" id="last_name">
+        </li>
+        <li>
+          <input type="text" name="phone" value="" id="phone">
+        </li>
+        <li>
+          <input type="text" name="email" value="" id="email">
+        </li>
+      </ul>
+    </form>
+
+    <p id="p_btn">
+      <a href="#" id="mybtn" onclick="saveContact()" class="button white">save</a>
+    </p>
 
     <script>
-      document
-        .getElementById("openContactsBtn")
-        .addEventListener("click", function () {
-          if ("contacts" in navigator) {
-            var options = {
-              multiple: false,
-              fields: ["name", "phoneNumbers", "organizations"],
-            };
+      function saveContact(){
+        var dataContact = {
+          'firstName':document.frm.first_name.value,
+          'lastName':document.frm.last_name.value,
+          'email':document.frm.email.value,
+          'phone':document.frm.phone.value
+        }
+        console.log(navigator);
+        navigator.contacts.newContact(dataContact,onSuccessContact)
+      }
 
-            var contactProperties = {
-              name: ["displayName"],
-              phoneNumbers: ["123"],
-              organizations: ["company"],
-            };
-
-            navigator.contacts
-              .select(options, contactProperties)
-              .then((contacts) => {
-                // 处理从联系人页面返回的联系人信息
-                console.log(contacts);
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-              });
-          } else {
-            alert("浏览器不支持打开联系人页面功能");
-          }
-        });
+      function onSuccessContact(contact){
+        navigator.notification.alert('Contact created', 'Contacts', "Done")
+      }
     </script>
   </body>
 </html>
