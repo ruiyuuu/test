@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>下载 vCard 文件</title>
+    <title>測試</title>
 </head>
 <body>
-    <h1>下载 vCard 文件</h1>
-    <p>姓名：John Doe</p>
-    <p>电话号码：123456789</p>
-    <p>公司：ABC 公司</p>
-    <button id="downloadVcardBtn">下载 vCard 文件</button>
+    <h1>測試股份有限公司</h1>
+    <p>姓名：王小美 事業部經理</p>
+    <p>聯絡方式：0987654321</p>
+    <p>公司：測試股份有限公司</p>
+    <button id="downloadVcardBtn">加為聯絡人</button>
 
     <script>
         document.getElementById('downloadVcardBtn').addEventListener('click', function() {
             var vcardData = 'BEGIN:VCARD\n' +
                             'VERSION:3.0\n' +
-                            'N:Doe;John\n' +
-                            'TEL;TYPE=CELL:123456789\n' +
-                            'ORG:ABC 公司\n' +
+                            'N:王小美;事業部經理\n' +
+                            'TEL;TYPE=CELL:0987654321\n' +
+                            'ORG:測試公司\n' +
                             'END:VCARD';
 
             var blob = new Blob([vcardData], { type: 'text/vcard' });
