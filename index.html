@@ -35,7 +35,9 @@
                             'X-LINE:test\n'+
                             'TITLE:Manager\n'+
                             'ROLE:Sales\n'+
-                            'NOTE:得獎紀錄\n123\n個人經歷\nAAA\n'+
+                            // 'NOTE:得獎紀錄:123\n個人經歷:AAA\n'+
+                            // 'NOTE:個人經歷:AAA\n'+
+                            'X-ABADR:年轻时：打球、跑步\n中年时：打电动\n'+
                             'END:VCARD';
 
             var blob = new Blob([vcardData], { type: 'text/vcard' });
