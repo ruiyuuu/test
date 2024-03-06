@@ -10,7 +10,7 @@
     <h1>QR-code儲存聯絡人</h1>
     <div>
         <label for="name">姓名：</label>
-        <input type="text" id="name" value="王小美">
+        <input type="text" id="name" value="Jim">
     </div>
     <div>
         <label for="phone">电话号码：</label>
@@ -42,8 +42,9 @@
 
             new QRCode(qrCodeDiv, {
                 text: text,
-                width: 200,
-                height: 200
+                correctLevel:3,
+                width: 400,
+                height: 500
             });
         }
     </script>
